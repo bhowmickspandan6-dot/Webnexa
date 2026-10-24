@@ -4,7 +4,7 @@ export interface Product {
   category: string;
   shortDescription: string;
   fullDescription: string;
-  price: number; // in INR
+  price: number; // in USD
   image: string;
   features: string[];
 }

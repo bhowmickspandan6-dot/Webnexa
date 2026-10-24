@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { Product } from '../types';
 import { buildWhatsAppPurchaseUrl } from '../utils/whatsapp';
+import { formatPriceUSD } from '../utils/currency';
 import { Eye, MessageCircle } from 'lucide-react';
 
 interface ProductCardProps {
@@ -134,7 +135,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             </div>
             <div className="relative z-10 flex items-center justify-between pt-2 border-t border-white/10 text-[11px] text-neutral-400">
               <span>Ready to Deploy</span>
-              <span className="font-semibold text-white">₹{product.price.toLocaleString('en-IN')}</span>
+              <span className="font-semibold text-white">{formatPriceUSD(product.price)}</span>
             </div>
           </div>
         ) : (
@@ -185,13 +186,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           {product.shortDescription}
         </motion.p>
 
-        {/* 4. Price in INR */}
+        {/* 4. Price in USD */}
         <motion.div
           variants={priceVariants}
           className="mt-4 pt-4 border-t border-neutral-100"
         >
           <div className="text-xl sm:text-2xl font-extrabold text-neutral-950 tabular-nums">
-            ₹{product.price.toLocaleString('en-IN')}
+            {formatPriceUSD(product.price)}
           </div>
         </motion.div>
 
