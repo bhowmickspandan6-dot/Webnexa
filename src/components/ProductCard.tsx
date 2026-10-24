@@ -16,6 +16,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   onViewDetails,
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const whatsAppUrl = buildWhatsAppPurchaseUrl(product);
   const shouldReduceMotion = useReducedMotion();
   const easeTransition = [0.22, 1, 0.36, 1] as const;
@@ -108,18 +109,54 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         className="relative aspect-[16/10] bg-neutral-100 overflow-hidden cursor-pointer"
         onClick={() => onViewDetails(product)}
       >
-        <img
-          src={product.image}
-          alt={`${product.name} template preview`}
-          referrerPolicy="no-referrer"
-          onLoad={() => setImageLoaded(true)}
-          className={`w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04] ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          loading="lazy"
-        />
-        {!imageLoaded && (
-          <div className="absolute inset-0 bg-neutral-100 animate-pulse" />
+        {imageError ? (
+          <div className="w-full h-full bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 text-white p-5 flex flex-col justify-between select-none relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
+            <div
+              className="absolute inset-0 opacity-[0.08]"
+              style={{
+                backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+                backgroundSize: '14px 14px',
+              }}
+            />
+            <div className="relative z-10 flex items-center justify-between">
+              <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/10 text-neutral-300">
+                {product.category}
+              </span>
+              <span className="text-[10px] font-semibold text-neutral-400">Webnexa</span>
+            </div>
+            <div className="relative z-10 my-auto py-2">
+              <div className="text-sm sm:text-base font-bold text-white tracking-tight leading-snug">
+                {product.name}
+              </div>
+              <div className="text-[11px] text-neutral-400 mt-1">
+                Static HTML5 / CSS3 / Vanilla JS
+              </div>
+            </div>
+            <div className="relative z-10 flex items-center justify-between pt-2 border-t border-white/10 text-[11px] text-neutral-400">
+              <span>Ready to Deploy</span>
+              <span className="font-semibold text-white">₹{product.price.toLocaleString('en-IN')}</span>
+            </div>
+          </div>
+        ) : (
+          <>
+            <img
+              src={product.image}
+              alt={`${product.name} template preview`}
+              referrerPolicy="no-referrer"
+              onLoad={() => setImageLoaded(true)}
+              onError={() => {
+                setImageError(true);
+                setImageLoaded(true);
+              }}
+              className={`w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04] ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              loading="lazy"
+            />
+            {!imageLoaded && (
+              <div className="absolute inset-0 bg-neutral-100 animate-pulse" />
+            )}
+          </>
         )}
       </motion.div>
 

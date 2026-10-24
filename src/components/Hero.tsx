@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles, Monitor, Settings } from 'lucide-react';
+import heroImage from '../assets/images/preview_hotel_website_1792855398655.jpg';
 
 interface HeroProps {
   onExploreClick: () => void;
@@ -8,6 +9,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
   const [heroImageLoaded, setHeroImageLoaded] = useState(false);
+  const [heroImageError, setHeroImageError] = useState(false);
 
   return (
     <section className="relative pt-10 pb-16 md:pt-16 md:pb-22 border-b border-neutral-100 bg-white overflow-hidden">
@@ -120,17 +122,45 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
 
                 {/* Laptop Screen Content */}
                 <div className="relative aspect-[16/10] bg-neutral-950 rounded-lg overflow-hidden border border-neutral-800">
-                  <img
-                    src="/src/assets/images/preview_hotel_website_1792855398655.jpg"
-                    alt="Featured Luxury Template Preview"
-                    referrerPolicy="no-referrer"
-                    onLoad={() => setHeroImageLoaded(true)}
-                    className={`w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03] ${
-                      heroImageLoaded ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  />
-                  {!heroImageLoaded && (
-                    <div className="absolute inset-0 bg-neutral-900 animate-pulse" />
+                  {heroImageError ? (
+                    <div className="w-full h-full bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 text-white p-6 flex flex-col justify-between">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">Featured Showcase</span>
+                        <span className="text-xs font-semibold px-2 py-0.5 rounded bg-white/10 text-white">Live Ready</span>
+                      </div>
+                      <div className="my-auto py-4">
+                        <div className="text-2xl font-extrabold text-white tracking-tight">Luxury Resort &amp; Hotel</div>
+                        <div className="text-sm text-neutral-400 mt-1">Multi-page static responsive template</div>
+                      </div>
+                      <div className="flex items-center justify-between text-xs text-neutral-400 border-t border-white/10 pt-3">
+                        <span>Webnexa Catalog</span>
+                        <span className="text-white font-medium">100% Static HTML/CSS/JS</span>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <img
+                        src={heroImage}
+                        alt="Featured Luxury Template Preview"
+                        referrerPolicy="no-referrer"
+                        onLoad={() => setHeroImageLoaded(true)}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          if (target.src !== window.location.origin + '/images/hotel-resort.jpg') {
+                            target.src = '/images/hotel-resort.jpg';
+                          } else {
+                            setHeroImageError(true);
+                            setHeroImageLoaded(true);
+                          }
+                        }}
+                        className={`w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03] ${
+                          heroImageLoaded ? 'opacity-100' : 'opacity-0'
+                        }`}
+                      />
+                      {!heroImageLoaded && (
+                        <div className="absolute inset-0 bg-neutral-900 animate-pulse" />
+                      )}
+                    </>
                   )}
                   {/* Subtle glass reflection */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none" />
@@ -155,9 +185,15 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
                 {/* Mobile Screen Display */}
                 <div className="relative aspect-[9/16] rounded-[22px] sm:rounded-[24px] overflow-hidden bg-neutral-900 border border-neutral-800">
                   <img
-                    src="/src/assets/images/preview_hotel_website_1792855398655.jpg"
+                    src={heroImage}
                     alt="Mobile responsive preview"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      if (target.src !== window.location.origin + '/images/hotel-resort.jpg') {
+                        target.src = '/images/hotel-resort.jpg';
+                      }
+                    }}
                     className="w-full h-full object-cover object-center"
                   />
                   {/* Bottom bar indicator */}

@@ -19,7 +19,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Professional multi-page template for corporate companies and enterprises.',
     fullDescription: 'Corporate Business Website is an executive static website template built for corporate consultancies, strategy firms, and legal advisories. Features responsive multi-column layouts, practice area overviews, leadership rosters, case study breakdowns, and contact inquiry forms.',
     price: 1999,
-    image: '/src/assets/images/preview_business_website_1792852697787.jpg',
+    image: '/images/corporate-business.jpg',
     features: [
       'Comprehensive multi-page corporate layout',
       'Dedicated practice area and service sections',
@@ -35,7 +35,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Elegant and modern template for restaurants, cafes and food businesses.',
     fullDescription: 'Crafted for upscale bistros, fine dining establishments, and neighborhood eateries. Features an appetizing visual showcase, structured food and beverage menu with pricing, chef story, operating hours, and reservation inquiry.',
     price: 1299,
-    image: '/src/assets/images/preview_restaurant_website_1792855399181.jpg',
+    image: '/images/restaurant.jpg',
     features: [
       'Visual seasonal menu with categories and pricing',
       'Chef story and kitchen philosophy section',
@@ -51,7 +51,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Beautiful template for hotels, resorts, homestays and travel businesses.',
     fullDescription: 'A serene hospitality website template designed for boutique hotels, coastal resorts, and luxury villas. Features suite galleries, amenity spotlights, guest dining overview, and straightforward booking inquiry links.',
     price: 1499,
-    image: '/src/assets/images/preview_hotel_website_1792855398655.jpg',
+    image: '/images/hotel-resort.jpg',
     features: [
       'Room & suite presentation with amenity tags',
       'Resort experiences and wellness spa highlights',
@@ -67,7 +67,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Clean and professional template for clinics, hospitals and healthcare services.',
     fullDescription: 'A trusted healthcare website template designed for family practices, specialized clinics, and diagnostic centres. Clearly presents specialist credentials, department services, patient preparation notes, and clinic location.',
     price: 1299,
-    image: '/src/assets/images/preview_clinic_website_1792855399429.jpg',
+    image: '/images/clinic-healthcare.jpg',
     features: [
       'Physician directory with credentials and specialties',
       'Clinical departments overview and treatments',
@@ -83,7 +83,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Editorial shopping storefront with product catalog, cart drawer, and WhatsApp checkout.',
     fullDescription: 'An editorial shopping template designed for apparel, ceramics, lifestyle, and boutique retail brands. Features generous whitespace, product filtering, responsive shopping bag drawer, and direct ordering links.',
     price: 1799,
-    image: '/src/assets/images/preview_ecommerce_store_1792852697845.jpg',
+    image: '/images/ecommerce-store.jpg',
     features: [
       'Product grid with category and price sorting',
       'Slide-over interactive shopping bag drawer',
@@ -99,7 +99,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Bold editorial portfolio for creative agencies, design studios, and photographers.',
     fullDescription: 'Tailored for art directors, graphic designers, photographers, and branding agencies who require a striking digital presence. Highlights creative case studies, client rosters, awards, and project commission inquiries.',
     price: 1399,
-    image: '/src/assets/images/preview_portfolio_designer_1792852698828.jpg',
+    image: '/images/creative-portfolio.jpg',
     features: [
       'Full-bleed editorial project showcase',
       'Detailed case study layout with concept narratives',
@@ -115,7 +115,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Romantic digital wedding celebration website with ceremony schedule, venue, and RSVP.',
     fullDescription: 'An elegant wedding invitation website crafted with refined serif typography, love story retrospective, celebration itinerary, venue map, and RSVP inquiry details.',
     price: 1199,
-    image: '/src/assets/images/preview_wedding_website_1792855399675.jpg',
+    image: '/images/wedding-invitation.jpg',
     features: [
       'Romantic editorial typography and couple story',
       'Ceremony, aperitivo, and reception timeline',
@@ -131,7 +131,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Filterable job directory website with department tags, salary ranges, and application links.',
     fullDescription: 'A clean job listing portal template for tech startups, recruitment agencies, and corporate careers pages. Features department filtering, salary displays, company cards, and direct application links.',
     price: 1599,
-    image: '/src/assets/images/preview_job_portal_1792855401085.jpg',
+    image: '/images/job-portal.jpg',
     features: [
       'Filterable job listing cards with salary and location',
       'Featured hiring companies strip',
@@ -147,7 +147,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'High-energy fitness club website with trainer rosters, training schedules, and pricing.',
     fullDescription: 'A dynamic athletic gym and fitness studio website featuring trainer biographies, workout class schedules, membership pricing tiers, and trial workout booking.',
     price: 1499,
-    image: '/src/assets/images/preview_gym_website_1792855400616.jpg',
+    image: '/images/fitness-gym.jpg',
     features: [
       'Coach biographies and specialty certifications',
       'Weekly training schedule and class descriptions',
@@ -163,7 +163,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'High-converting software landing page with interactive dashboard showcase and pricing.',
     fullDescription: 'Engineered specifically for software founders and tech startups. Features an impactful hero section, workflow automation highlights, tiered pricing tables, and FAQ accordion.',
     price: 1399,
-    image: '/src/assets/images/preview_saas_landing_1792852699934.jpg',
+    image: '/images/saas-landing.jpg',
     features: [
       'High-converting above-the-fold hero section',
       'Product feature breakdown with workflow cards',
@@ -179,7 +179,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Clean financial dashboard template with revenue charts, transaction tables, and metric cards.',
     fullDescription: 'A comprehensive web dashboard and utility tool template with visual data charts, expense breakdowns, transaction logs, and financial overview metrics.',
     price: 1599,
-    image: '/src/assets/images/preview_uikit_dashboard_1792852698925.jpg',
+    image: '/images/analytics-dashboard.jpg',
     features: [
       'Interactive financial metric cards with tabular numbers',
       'Visual performance charts and trend lines',
@@ -195,7 +195,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Modern course platform website with curriculum syllabus, instructor bios, and enrollment.',
     fullDescription: 'Designed for educators, coaching centres, and course creators. Highlights syllabus modules, video preview sections, student outcomes, and enrollment inquiries.',
     price: 1399,
-    image: '/src/assets/images/preview_saas_landing_1792852699934.jpg',
+    image: '/images/education-academy.jpg',
     features: [
       'Syllabus breakdown with expandable modules',
       'Instructor credentials and student testimonials',

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Product } from '../types';
 import { buildWhatsAppPurchaseUrl } from '../utils/whatsapp';
@@ -13,6 +13,15 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   product,
   onClose,
 }) => {
+  const [modalImageLoaded, setModalImageLoaded] = useState(false);
+  const [modalImageError, setModalImageError] = useState(false);
+
+  // Reset image state when product changes
+  useEffect(() => {
+    setModalImageLoaded(false);
+    setModalImageError(false);
+  }, [product?.id]);
+
   // Lock background scroll when modal is open
   useEffect(() => {
     if (!product) return;
@@ -81,12 +90,54 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         <div className="overflow-y-auto p-6 sm:p-8 space-y-6">
           {/* Authentic Preview Image */}
           <div className="relative aspect-[16/10] sm:aspect-[16/9] bg-neutral-100 rounded-xl overflow-hidden border border-neutral-200/80 shadow-xs">
-            <img
-              src={product.image}
-              alt={`${product.name} website template preview`}
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-[1.02]"
-            />
+            {modalImageError ? (
+              <div className="w-full h-full bg-gradient-to-br from-neutral-900 via-neutral-950 to-neutral-900 text-white p-6 sm:p-8 flex flex-col justify-between select-none relative overflow-hidden">
+                <div
+                  className="absolute inset-0 opacity-[0.08]"
+                  style={{
+                    backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+                    backgroundSize: '16px 16px',
+                  }}
+                />
+                <div className="relative z-10 flex items-center justify-between">
+                  <span className="text-xs font-mono uppercase tracking-wider px-2.5 py-1 rounded bg-white/10 text-neutral-300">
+                    {product.category}
+                  </span>
+                  <span className="text-xs font-semibold text-neutral-400">Webnexa Verified</span>
+                </div>
+                <div className="relative z-10 my-auto py-4">
+                  <div className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
+                    {product.name}
+                  </div>
+                  <div className="text-xs sm:text-sm text-neutral-400 mt-1.5 max-w-lg">
+                    Production-Ready Static Website Template (HTML5, CSS3, JavaScript)
+                  </div>
+                </div>
+                <div className="relative z-10 flex items-center justify-between pt-3 border-t border-white/10 text-xs text-neutral-400">
+                  <span>Zero Server Configuration Required</span>
+                  <span className="font-semibold text-white">₹{product.price.toLocaleString('en-IN')}</span>
+                </div>
+              </div>
+            ) : (
+              <>
+                <img
+                  src={product.image}
+                  alt={`${product.name} website template preview`}
+                  referrerPolicy="no-referrer"
+                  onLoad={() => setModalImageLoaded(true)}
+                  onError={() => {
+                    setModalImageError(true);
+                    setModalImageLoaded(true);
+                  }}
+                  className={`w-full h-full object-cover object-top transition-all duration-500 hover:scale-[1.02] ${
+                    modalImageLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+                {!modalImageLoaded && (
+                  <div className="absolute inset-0 bg-neutral-100 animate-pulse" />
+                )}
+              </>
+            )}
           </div>
 
           {/* Product Title and Price */}
