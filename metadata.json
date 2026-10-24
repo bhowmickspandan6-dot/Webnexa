@@ -1,0 +1,6 @@
+{
+  "name": "Webnexa - Static Website Template Marketplace",
+  "description": "Discover and purchase ready-made static website templates. 100% static HTML5, CSS3, and JavaScript templates with zero backend dependencies.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
