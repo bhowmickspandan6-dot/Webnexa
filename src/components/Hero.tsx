@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Sparkles, Monitor, Settings } from 'lucide-react';
+import { ArrowRight, Sparkles, ShoppingBag } from 'lucide-react';
 import heroImage from '../assets/images/preview_hotel_website_1792855398655.jpg';
 
 interface HeroProps {
@@ -83,27 +83,37 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
                 </div>
               </div>
 
-              {/* Feature 2 */}
-              <div className="flex items-start gap-2.5">
+              {/* Feature 2: Premium Templates */}
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: 0.44, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-start gap-2.5"
+              >
                 <div className="p-1.5 rounded-lg text-neutral-950 shrink-0 mt-0.5">
-                  <Monitor className="w-5 h-5 text-neutral-900" />
+                  <Sparkles className="w-5 h-5 text-neutral-900" />
                 </div>
                 <div>
-                  <div className="text-xs sm:text-sm font-bold text-neutral-950">Fully Responsive</div>
-                  <div className="text-[11px] sm:text-xs text-neutral-500 mt-0.5">Looks great on all devices</div>
+                  <div className="text-xs sm:text-sm font-bold text-neutral-950">Premium Templates</div>
+                  <div className="text-[11px] sm:text-xs text-neutral-500 mt-0.5">Stunning designs for every business</div>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Feature 3 */}
-              <div className="flex items-start gap-2.5">
+              {/* Feature 3: New Arrivals */}
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-start gap-2.5"
+              >
                 <div className="p-1.5 rounded-lg text-neutral-950 shrink-0 mt-0.5">
-                  <Settings className="w-5 h-5 text-neutral-900" />
+                  <ShoppingBag className="w-5 h-5 text-neutral-900" />
                 </div>
                 <div>
-                  <div className="text-xs sm:text-sm font-bold text-neutral-950">Easy to Customize</div>
-                  <div className="text-[11px] sm:text-xs text-neutral-500 mt-0.5">Clean &amp; well-structured code</div>
+                  <div className="text-xs sm:text-sm font-bold text-neutral-950">New Arrivals</div>
+                  <div className="text-[11px] sm:text-xs text-neutral-500 mt-0.5">Discover our latest designs</div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
 
