@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, ShoppingCart, ArrowRight, LayoutGrid, Sparkles, ShieldCheck } from 'lucide-react';
+import { ShoppingCart, ArrowRight, Sparkles } from 'lucide-react';
 
 interface HeaderProps {
-  searchQuery: string;
-  onSearchChange: (query: string) => void;
+  searchQuery?: string;
+  onSearchChange?: (query: string) => void;
   onNavigate: (sectionId: string) => void;
   activeSection?: string;
   savedCount?: number;
@@ -134,29 +134,6 @@ export const Header: React.FC<HeaderProps> = ({
               </nav>
             </div>
 
-            {/* Center-Right: Search Field with smooth focus & shadow animation */}
-            <div className="hidden sm:flex items-center flex-1 max-w-md mx-2">
-              <div className="relative w-full group">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 group-focus-within:text-neutral-950 transition-colors pointer-events-none" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => onSearchChange(e.target.value)}
-                  placeholder="Search websites, templates, designs..."
-                  className="w-full pl-10 pr-9 py-2 text-xs sm:text-sm bg-neutral-100/80 hover:bg-neutral-100 focus:bg-white text-neutral-900 placeholder:text-neutral-500 rounded-xl border border-transparent focus:border-neutral-300 focus:ring-2 focus:ring-neutral-950/5 focus:outline-none transition-all duration-200 shadow-2xs focus:shadow-sm"
-                />
-                {searchQuery && (
-                  <button
-                    onClick={() => onSearchChange('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-700 cursor-pointer p-0.5 rounded transition-colors"
-                    aria-label="Clear search"
-                  >
-                    <span className="text-xs font-bold leading-none">&times;</span>
-                  </button>
-                )}
-              </div>
-            </div>
-
             {/* Right Action Icons: Shopping Cart & Animated Three-Line Hamburger */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               {/* Cart Button with gentle bounce/scale on click */}
@@ -210,29 +187,6 @@ export const Header: React.FC<HeaderProps> = ({
                   />
                 </div>
               </button>
-            </div>
-          </div>
-
-          {/* Mobile Search Row (visible only on tiny viewports) */}
-          <div className="sm:hidden pb-3">
-            <div className="relative w-full">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => onSearchChange(e.target.value)}
-                placeholder="Search websites, templates..."
-                className="w-full pl-10 pr-8 py-2 text-sm bg-neutral-100/90 text-neutral-900 placeholder:text-neutral-500 rounded-xl border border-transparent focus:border-neutral-300 focus:bg-white focus:outline-none transition-all"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => onSearchChange('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-700 text-xs font-bold"
-                  aria-label="Clear search"
-                >
-                  &times;
-                </button>
-              )}
             </div>
           </div>
         </div>
