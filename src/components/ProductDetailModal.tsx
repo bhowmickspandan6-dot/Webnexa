@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Product } from '../types';
 import { buildWhatsAppPurchaseUrl } from '../utils/whatsapp';
-import { formatPriceUSD } from '../utils/currency';
+import { formatPriceINR } from '../utils/currency';
 import { X, MessageCircle, Check } from 'lucide-react';
 
 interface ProductDetailModalProps {
@@ -116,7 +116,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 </div>
                 <div className="relative z-10 flex items-center justify-between pt-3 border-t border-white/10 text-xs text-neutral-400">
                   <span>Zero Server Configuration Required</span>
-                  <span className="font-semibold text-white">{formatPriceUSD(product.price)}</span>
+                  <span className="font-semibold text-white">{formatPriceINR(product.price)}</span>
                 </div>
               </div>
             ) : (
@@ -152,7 +152,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </p>
             </div>
             <div className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tabular-nums shrink-0 mt-2 sm:mt-0">
-              {formatPriceUSD(product.price)}
+              {formatPriceINR(product.price)}
             </div>
           </div>
 
@@ -185,7 +185,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-white bg-neutral-950 hover:bg-neutral-800 rounded-xl transition-colors shadow-xs text-center cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
-              <span>Buy on WhatsApp — {formatPriceUSD(product.price)}</span>
+              <span>Buy on WhatsApp — {formatPriceINR(product.price)}</span>
             </motion.a>
             <p className="text-[11px] text-neutral-400 text-center mt-2 leading-normal">
               Clicking opens a pre-filled WhatsApp chat with the template details. The owner will confirm and provide delivery instructions directly.
