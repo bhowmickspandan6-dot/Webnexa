@@ -146,7 +146,7 @@ export const PRODUCTS: Product[] = [
     category: 'Local Business',
     shortDescription: 'High-energy fitness club website with trainer rosters, training schedules, and pricing.',
     fullDescription: 'A dynamic athletic gym and fitness studio website featuring trainer biographies, workout class schedules, membership pricing tiers, and trial workout booking.',
-    price: 13000,
+    price: 18000,
     image: '/images/fitness-gym.jpg',
     features: [
       'Coach biographies and specialty certifications',
